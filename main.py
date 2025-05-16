@@ -40,6 +40,7 @@ async def download_video(request: Request):
         os.makedirs("downloads", exist_ok=True)
 
         ydl_opts = {
+            'cookiefile': 'cookies.txt',
             'format': 'bestvideo+bestaudio',
             'merge_output_format': 'mp4',
             'outtmpl': outtmpl,
