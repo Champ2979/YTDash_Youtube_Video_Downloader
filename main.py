@@ -40,13 +40,18 @@ async def download_video(request: Request):
         os.makedirs("downloads", exist_ok=True)
 
         ydl_opts = {
-            'cookiefile': 'cookies.txt',
-            'format': 'bestvideo+bestaudio',
-            'merge_output_format': 'mp4',
-            'outtmpl': outtmpl,
-            'quiet': True,
-        }
-
+    'cookiefile': 'cookies.txt',
+    'format': 'best',
+    'http_headers': {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Accept-Language': 'en-US,en;q=0.9',
+    },
+    'extract_flat': False,
+    'quiet': True,
+    'no_warnings': True,
+    'sleep_interval': 10,  # Add delay
+    'max_sleep_interval': 30,
+}
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
             filename = ydl.prepare_filename(info)
