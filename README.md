@@ -53,5 +53,5 @@ yt-dlp --cookies-from-browser chrome --cookies cookies.txt
 - Add cookies.txt to .gitignore.
 
 
-## For now, it is easy to run this application locally on your computer. It will work great and will download the best quality youtube video to your computer.
+## For now, it is easy to run this application locally on your computer. It will work great and download the best quality youtube video to your computer.
 
