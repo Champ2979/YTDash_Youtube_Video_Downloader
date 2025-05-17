@@ -2,12 +2,17 @@ from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse, HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from dotenv import load_dotenv
 import yt_dlp
 import os
 import uuid
 import uvicorn
 
 app = FastAPI()
+
+load_dotenv()
+
+cookie_file_path = os.getenv("COOKIE_FILE_PATH")
 
 # CORS for frontend fetch
 app.add_middleware(
