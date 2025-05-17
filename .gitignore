@@ -1,5 +1,5 @@
 __pycache__/
 .vscode/
 downloads/
-env/
-cookies
+.env
+cookies.txt
